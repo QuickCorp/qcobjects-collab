@@ -1,6 +1,6 @@
 {
   "name": "qcobjects-collab",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "QCObjects Collab for Data Science",
   "main": "qcobjects-collab.js",
   "license": "LGPL-3.0",
@@ -76,7 +76,7 @@
     "eslint": "^6.8.0",
     "jasmine": "^3.4.0"
   },
-  "bin":{
-    "qcobjects-collab":"./qcobjects-collab.js"
+  "bin": {
+    "qcobjects-collab": "./qcobjects-collab.js"
   }
 }
