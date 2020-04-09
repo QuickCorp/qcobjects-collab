@@ -25,4 +25,4 @@
 */
 "use strict";
 
-require("qcobjects-cli/qcobjects-collab.js");
+require("qcobjects-cli/qcobjects-collab");
