@@ -68,11 +68,9 @@
   },
   "homepage": "https://qcobjects.com",
   "dependencies": {
-    "qcobjects": "latest",
-    "qcobjects-sdk": "latest"
+    "qcobjects-cli": "latest"
   },
   "devDependencies": {
-    "qcobjects-cli": "^0.1.90",
     "eslint": "^6.8.0",
     "jasmine": "^3.4.0"
   },
