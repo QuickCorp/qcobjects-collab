@@ -5,7 +5,7 @@
   "main": "qcobjects-collab.js",
   "license": "LGPL-3.0",
   "scripts": {
-    "start": "qcobjects-collab",
+    "start": "node ./qcobjects-collab.js",
     "test": "npx eslint qcobjects-collab.js && jasmine",
     "preversion": "npm cache verify && npm test",
     "sync": "git add . && git commit -am ",
@@ -75,5 +75,8 @@
     "qcobjects-cli": "latest",
     "eslint": "^6.8.0",
     "jasmine": "^3.4.0"
+  },
+  "bin":{
+    "qcobjects-collab":"./qcobjects-collab.js"
   }
 }

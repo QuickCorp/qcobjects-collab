@@ -25,4 +25,4 @@
 */
 "use strict";
 
-require("qcobjects");
+require("qcobjects-cli/qcobjects-collab");
