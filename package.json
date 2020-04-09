@@ -2,7 +2,7 @@
   "name": "qcobjects-collab",
   "version": "0.0.10",
   "description": "QCObjects Collab for Data Science",
-  "main": "qcobjects-collab.js",
+  "main": "./qcobjects-collab.js",
   "license": "LGPL-3.0",
   "scripts": {
     "start": "node ./qcobjects-collab.js",
