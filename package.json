@@ -5,6 +5,7 @@
   "main": "./qcobjects-collab.js",
   "license": "LGPL-3.0",
   "scripts": {
+    "preinstall":"npm i --save-dev qcobjects-cli",
     "start": "node ./qcobjects-collab.js",
     "test": "npx eslint qcobjects-collab.js && jasmine",
     "preversion": "npm cache verify && npm test",
