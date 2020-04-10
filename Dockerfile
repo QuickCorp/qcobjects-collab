@@ -24,21 +24,7 @@ FROM quickcorp/qcobjects:latest
 #  license document, but changing it is not allowed.
 ###
 
-
-LABEL org.quickcorp.qcobjects.cli.version="0.0.4"
-LABEL vendor1="QuickCorp"
-LABEL vendor2="QCObjects"
-LABEL org.quickcorp.qcobjects.release-date="2019-06-01"
-LABEL org.quickcorp.qcobjects.version.is-production=""
-
-
-#Install Global Dependencies
-RUN npm install -g jasmine --only=production
-RUN npm install -g qcobjects-sdk --only=production
-RUN npm install -g qcobjects-cli --only=production
-
 #Configure the internal user permissions
-RUN groupadd -r qcobjects && useradd -r -s /bin/bash -g qcobjects qcobjects
 RUN mkdir -p /home/qcobjects/app && chown -R qcobjects:qcobjects /home/qcobjects
 
 #Setting the work directory
