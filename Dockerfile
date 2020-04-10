@@ -1,4 +1,4 @@
-FROM node:12.16
+FROM quickcorp/qcobjects:latest
 ###
 #  QCObjects  1.0
 #  ________________
@@ -24,29 +24,20 @@ FROM node:12.16
 #  license document, but changing it is not allowed.
 ###
 
-LABEL org.quickcorp.qcobjects.cli.version="0.1.90"
-LABEL vendor1="QuickCorp"
-LABEL vendor2="QCObjects"
-LABEL org.quickcorp.qcobjects.release-date="2019-06-01"
-LABEL org.quickcorp.qcobjects.version.is-production=""
 
-RUN npm install -g jasmine --only=production
-RUN npm install -g qcobjects-sdk --only=production
-RUN npm install -g qcobjects-cli --only=production
+WORKDIR /usr/src/app
 
-RUN groupadd -r qcobjects && useradd -r -s /bin/bash -g qcobjects qcobjects
-RUN mkdir -p /home/qcobjects && chown -R qcobjects:qcobjects /home/qcobjects
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
 
-WORKDIR /home/qcobjects
-USER qcobjects
-COPY package*.json ./
-RUN jasmine init
-RUN npm cache verify
-RUN npm ci --save --only=production
+COPY ./package.json /usr/src/app/
+RUN npm install
 
-# Bundle app source
-COPY --chown=qcobjects:qcobjects . .
+COPY . /usr/src/app
+
+# Default port is 10300
+ENV COLLAB_PORT 10300
+
+EXPOSE $COLLAB_PORT
 
 CMD [ "npm", "start" ]
-# Default port is 10300
-EXPOSE 10300
