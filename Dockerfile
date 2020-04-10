@@ -45,4 +45,4 @@ ENV COLLAB_PORT 10300
 
 EXPOSE $COLLAB_PORT
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start" ]
