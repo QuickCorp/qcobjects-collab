@@ -1,6 +1,6 @@
 {
   "name": "qcobjects-collab",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "QCObjects Collab for Data Science",
   "main": "./qcobjects-collab.js",
   "license": "LGPL-3.0",
@@ -77,6 +77,6 @@
     "qcobjects-cli": "latest"
   },
   "bin": {
-    "qcobjects-collab": "node ./qcobjects-collab.js"
+    "qcobjects-collab": "npm collab"
   }
 }
