@@ -72,9 +72,9 @@
     "qcobjects-sdk": "latest"
   },
   "devDependencies": {
-    "qcobjects-cli": "latest",
     "eslint": "^6.8.0",
-    "jasmine": "^3.4.0"
+    "jasmine": "^3.4.0",
+    "qcobjects-cli": "latest"
   },
   "bin": {
     "qcobjects-collab": "./qcobjects-collab.js"
