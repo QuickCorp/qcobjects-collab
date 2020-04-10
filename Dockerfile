@@ -48,3 +48,5 @@ RUN npm ci --save --only=production
 COPY --chown=qcobjects:qcobjects . .
 
 CMD [ "npm", "start" ]
+# Default port is 10300
+EXPOSE 10300
