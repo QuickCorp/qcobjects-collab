@@ -25,15 +25,34 @@ FROM quickcorp/qcobjects:latest
 ###
 
 
-WORKDIR /usr/src/app
+LABEL org.quickcorp.qcobjects.cli.version="0.0.4"
+LABEL vendor1="QuickCorp"
+LABEL vendor2="QCObjects"
+LABEL org.quickcorp.qcobjects.release-date="2019-06-01"
+LABEL org.quickcorp.qcobjects.version.is-production=""
 
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
 
-COPY ./package*.json /usr/src/app/
-RUN npm install
+#Install Global Dependencies
+RUN npm install -g jasmine --only=production
+RUN npm install -g qcobjects-sdk --only=production
+RUN npm install -g qcobjects-cli --only=production
 
-COPY . /usr/src/app
+#Configure the internal user permissions
+RUN groupadd -r qcobjects && useradd -r -s /bin/bash -g qcobjects qcobjects
+RUN mkdir -p /home/qcobjects/app && chown -R qcobjects:qcobjects /home/qcobjects
+
+#Setting the work directory
+WORKDIR /home/qcobjects/app
+USER qcobjects
+COPY package*.json ./
+
+#Run the initial install init scripts for jasmine and cache verify
+RUN jasmine init
+RUN npm cache verify
+RUN npm ci --save --only=production
+
+# Bundle app source
+COPY --chown=qcobjects:qcobjects . .
 
 # Default port is 10300
 ENV COLLAB_PORT 10300
