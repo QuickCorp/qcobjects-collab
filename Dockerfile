@@ -23,6 +23,7 @@ FROM quickcorp/qcobjects:latest
 #  Everyone is permitted to copy and distribute verbatim copies of this
 #  license document, but changing it is not allowed.
 ###
+USER root
 
 #Configure the internal user permissions
 RUN mkdir -p /home/qcobjects/app && chown -R qcobjects:qcobjects /home/qcobjects
